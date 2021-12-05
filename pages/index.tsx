@@ -16,7 +16,9 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
 
   const loadNFTs = async () => {
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider(
+      "https://ropsten.infura.io/v3"
+    );
     const nftContract = new ethers.Contract(nftAddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       nftMarketAddress,
